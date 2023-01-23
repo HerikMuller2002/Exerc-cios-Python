@@ -19,7 +19,7 @@ while True:
         time.sleep(2)
         continue
 
-if hora <= 11:
+if hora <= 11 or hora == 24:
     print('Bom dia!')
 elif hora >= 12 and hora <= 17:
     print('Boa tarde!')

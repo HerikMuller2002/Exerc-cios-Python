@@ -1,24 +1,23 @@
-nome = str(input("seu nome: "))
+import os
+import time
 
-inv = nome[::-1]
+def limpar():
+    os.system("cls")
 
-espaco = nome.split()
-if len(espaco) > 1:
-    espacos = True
+while True:
+    try:
+        limpar()
+        num = int(input("digite um número inteiro: "))
+        break
+    except:
+        limpar()
+        print("Erro!\nVocê não digitou um número inteiro!")
+        time.sleep(3)
+        continue
+
+if num % 2 == 0:
+    limpar()
+    print("O número %i, é par!\n"%(num))
 else:
-    espacos = False
-
-letras = 0
-for i in espaco:
-    for j in i:
-        letras += 1
-
-primeira = nome[0]
-ultima = nome[-1]
-
-print("seu nome: %s" %(nome))
-print("nome invertido: %s" %(inv))
-print("tem espaço: %s" %(espacos))
-print("tem %s letras" %(letras))
-print("primeira letra: %s" %(primeira))
-print("última letra: %s" %(ultima))
+    limpar()
+    print("O número %i, é ímpar!\n"%(num))

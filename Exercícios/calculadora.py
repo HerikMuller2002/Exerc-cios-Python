@@ -1,57 +1,93 @@
-print(' ')
-print("{:=^80}".format('Calculadora python'))
-print(' ')
-print('selecione o número da operação desejada:')
-print(' ')
-print('1-soma \n2-subtração \n3-multiplicação \n4-divisão')
-print(' ')
+# import
+import os
+import time
 
-escolha = str(input('digite sua opção (1/2/3/4): '))
+# funções
+def limpar():
+    os.system("cls")
 
-print(' ')
+def erro():
+    limpar()
+    print("Erro!")
+    time.sleep(2.5)
 
-def somar ():
-    num1 = float(input('digite o primeiro número: '))
-    num2 = float(input('digite o segundo número: '))
-    soma = num1 + num2
-    print('%d + %d = %d'%(num1, num2, soma))
+def title():
+    limpar()
+    print("{:=^40}".format(" Calculadora python "))
 
-def subtrair ():
-    num1 = float(input('digite o primeiro número: '))
-    num2 = float(input('digite o segundo número: '))
-    subtracao = num1 - num2
-    print(' ')
-    print('%d - %d = %d'%(num1, num2, subtracao))
+def soma(nums):
+    soma = sum(nums)
+    return soma
 
-def dividir ():
-    num1 = float(input('digite o primeiro número: '))
-    num2 = float(input('digite o segundo número: '))
-    divisao = num1 / num2
-    print(' ')
-    print('%d / %d = %d'%(num1, num2, divisao))
+def sub(nums):
+    subtracao = 0
+    for i in nums:
+        if nums.index(i) == 0:
+            subtracao += i
+        else:
+            subtracao -= i
+    return subtracao
 
-def multiplicar ():
-    num1 = float(input('digite o primeiro número: '))
-    num2 = float(input('digite o segundo número: '))
-    multiplicacao = num1 * num2
-    print(' ')
-    print('%d * %d = %d'%(num1, num2, multiplicacao))
+def multi(nums):
+    multi = 0
+    for i in nums:
+        if nums.index(i) == 0:
+            multi += i
+        else:
+            multi *= i
+    return multi
 
-if escolha == '1':
-    somar()
-    print(' ')
+def div(nums):
+    div = 0
+    for i in nums:
+        if nums.index(i) == 0:
+            div += i
+        else:
+            div /= i
+    return div
 
-elif escolha == '2':
-    subtrair()
-    print(' ')
 
-elif escolha == '3':
-    multiplicar()
-    print(' ')
+# código
+limpar()
+title()
+print("\nQual operação pretende fazer?")
+print("\nsoma ==>            +")
+print("subtração ==>       -")
+print("divisão ==>         /")
+print("multiplicação ==>   *\n")
+operador = str(input('  '))
 
-elif escolha == '4':
-    dividir()
-    print(' ')
+lista_num = []
+while True:
+    limpar()
+    title()
+    print("\nDigite '=' para a resolver a conta\n")
+    print("Digite o número:")
+    try:
+        block = "abcdefghijklmnopqrstuvwxyz[´`]{;.,:}/?°ºª^~><+-_()*&¨%$#@!'|ç"
+        block = list(block)
+        num = str(input('     '))
+        if num in block:
+            raise Exception
+        elif num == "=":
+            break
+        else:
+            num = int(num)
+            lista_num.append(num)
+            continue
+    except:
+        erro()
+        continue
 
-else:
-    print('opção inválida!')
+if operador == "+":
+    adicao = soma(lista_num)
+    print("A soma é:",adicao)
+elif operador == "-":
+    subtracao = sub(lista_num)
+    print("A subtração é:",subtracao)
+elif operador == "*":
+    multiplicacao = multi(lista_num)
+    print("A multiplicação é:",multiplicacao)
+elif operador == "/":
+    divisao = div(lista_num)
+    print("A divisão é:",divisao)

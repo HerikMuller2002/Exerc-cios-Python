@@ -1,0 +1,1 @@
+perguntas = [{'pergunta':'Qual é a capital da comlômbia?','opcoes':['Santiago','Caracas','Bogotá','Medelin'],'resposta':'c'},{'pergunta':'Quantas nações há na américa do norte?','opcoes':['2','3','4','5'],'resposta':'c'},{'pergunta':'Qual país se encontra nos 4 pontos cardeais ao mesmo tempo?','opcoes':['Autrália','Kiribati','Marrocos','Fiji'],'resposta':'b'}]

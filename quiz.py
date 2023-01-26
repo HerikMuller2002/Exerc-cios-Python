@@ -19,7 +19,7 @@ def resultado(result):
 def exibe(num):
     if num == 1:
         print(perguntas[0]['pergunta'])
-        print('')
+        print()
         cont = 0
         for j in perguntas[0]['opcoes']:
             alt = ['a)','b)','c)','d)']

@@ -11,7 +11,7 @@ b = cpf[3:6]
 c = cpf[6:9]
 
 cpf = ''.join(a) + '.' +''.join(b) + '.' + ''.join(c)
-
+  
 nums_point = cpf[:11]
 nums = re.sub(r'[^0-9]','',nums_point)
 count = 10
